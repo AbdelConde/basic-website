@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title #{title} - Earthling
+    link(rel='stylesheet', href='/stylesheets/index/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+  body(onload='getLocation()')
+    script(src='http://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='./js/register.js')
+    .signupSection
+      .info
+        h2 Earthling
+        i.icon.ion-ios-ionic-outline
+        p D2SmartSoft
+      form(method='POST' action='/register' class='signupform' name='signupform')
+        h2 Sign Up
+        .form-group
+          .alert.alert-danger(role='alert', id="msgDiv")
+        ul.noBullet
+          li
+            label(for='full_name')
+            input#full_name(class='inputFields' type='text', placeholder='Full Name' name='full_name'  required)
+          li
+            label(for='email')
+            input#email(class='inputFields' type='email', placeholder='Email' name='email' required)
+          li
+            label(for='username')
+            input#username(class='inputFields' type='text', placeholder='Username' name='username' oninput='return userNameValidation(this.value)' required)
+          li
+            label(for='password')
+            input#password(class='inputFields' type='password', placeholder='Password' name='password' oninput='return passwordValidation(this.value)' required)
+          li
+            label(for='cpassword')
+            input#cpassword(class='inputFields' type='password', placeholder='Confirm Password' name='cpassword' oninput='return passwordValidation(this.value)' required)
+          li
+            label(for='dob')
+            input#dob(class='inputFields' type='date', placeholder='Date of Birth' name='dob' required)
+          input#location(class='inputFields' type='hidden', name='location'  required)
+          
+          li#center-btn
+            button#join-btn(onclick="registrar()") Join
+    script(src="index.js")

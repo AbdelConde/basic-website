@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title #{title} - Earthling
+    link(rel='stylesheet', href='/stylesheets/index/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+  body
+    script(src='http://code.jquery.com/jquery-3.3.1.min.js')
+    .signupSection
+      .info
+        h2 Earthling
+        i.icon.ion-ios-ionic-outline
+        p D2SmartSoft
+      form(method='POST' action='/auth' class='signupform' name='loginform')
+        h2 Login
+        .form-group
+          .alert.alert-danger(role='alert', id="msgDiv")
+        ul.noBullet
+          li
+            label(for='username')
+            input#username(class='inputFields' type='text', placeholder='Username' name='username' oninput='return userNameValidation(this.value)' required)
+          li
+            label(for='password')
+            input#password(class='inputFields' type='password', placeholder='Password' name='password' oninput='return passwordValidation(this.value)' required)
+          li#center-
+            p Are you new to Earthling? 
+              a(href="/signup") Register here
+          li#center-btn
+            input#join-btn(type="submit", value="Login Now")          
+    script(src="index.js")

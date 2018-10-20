@@ -1,0 +1,24 @@
+extend layout
+
+block content
+  ul.menu
+    li
+      a(href="#" onclick="perfil();")
+        img(src="images/perfil.png")
+        p Perfil
+    li
+      a(href="#" onclick="misAudios();")
+        img(src="images/micro.png")
+        p Mi Audio
+    li
+      a(href="#")
+        img(src="images/ajustes.png")
+        p Configuraci&oacute;n
+block sidebar
+  .widget    
+    #control_audio
+      h1 Audio Controls
+      button(id="start-btn" onclick="startRecording()") Start Recording
+      button(id="stop-btn" onclick="stopRecording()") Stop Recording    
+    #my_audio
+      h1 My Recording

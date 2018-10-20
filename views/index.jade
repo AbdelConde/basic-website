@@ -1,0 +1,45 @@
+extend layout
+
+block sidebar
+    section.full-box.cover.dashboard-sideBar.hide-sidebar
+        .full-box.dashboard-sideBar-bg.btn-menu-dashboard
+            .full-box.dashboard-sideBar-ct
+                .full-box.text-uppercase.text-center.text-titles.dashboard-sideBar-title
+                    p Earthling 
+                    i.zmdi.zmdi-close.btn-menu-dashboard.visible-xs
+            .full-box.dashboard-sideBar-UserInfo
+                figure.full-box
+                    img(src="./assets/img/avatar.jpg" alt="UserIcon")
+                    figcaption.text-center.text-titles
+                        p #{cUser}
+            ul.full-box.list-unstyled.text-center
+                li
+                    a(href="#!" class="btn-settings")
+                        i.zmdi.zmdi-settings
+                li
+                    a(href="#!" class="btn-exit-system")
+                        i.zmdi.zmdi-power						
+            ul.list-unstyled.full-box.dashboard-sideBar-Menu
+                li
+                    a(href="/profile")
+                        i.zmdi.zmdi-view-dashboard.zmdi-hc-fw Overview
+                li
+                    a(href="/profile" )
+                        i.zmdi.zmdi-male-female.zmdi-hc-fw Friends 
+                li
+                    a(href="/profile" class="btn-sideBar-SubMenu")
+                        i.zmdi.zmdi-playlist-audio.zmdi-hc-fw Recordings 
+                        i.zmdi.zmdi-caret-down.pull-right
+                    ul.list-unstyled.full-box
+                        li
+                            a(href="#!" )
+                                i.zmdi.zmdi-playlist-plus.zmdi-hc-fw New Recording
+block navbar
+    nav.full-box.dashboard-Navbar
+        ul.full-box.list-unstyled.text-right
+            li.pull-left
+                if cUser
+                    a(href="#!" class="btn-menu-dashboard user-button")
+                else
+                    a(href="/login" class="login-button")
+            li

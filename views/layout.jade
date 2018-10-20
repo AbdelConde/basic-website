@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title #{title} - Earthling
+    
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="Cesium/Cesium.js")
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/home/main.css')
+    link(rel='stylesheet', href='/Cesium/Widgets/widgets.css')
+  body
+   
+    block sidebar
+    section.full-box-left.dashboard-contentPage.no-paddin-left
+        block navbar 
+    #cesiumContainer.cesiumContainer        
+    script(src="main.js")
+    script(src="./js/home.js")
+    script(src="./js/jquery.mCustomScrollbar.concat.min.js")
+//    .toolbar-left
+//        button(onclick='login()' class='login-button' tooltip="Login/Registro")
+        
+    

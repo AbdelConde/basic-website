@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title #{title} - My Profile
+    script(src="https://cdn.jsdelivr.net/binaryjs/0.2.1/binary.min.js")
+    script(src='http://code.jquery.com/jquery-3.3.1.min.js')
+    script(src="recorder.js")
+    script(src="/js/profile.js")
+    script(src="./js/js.js?v=107")
+    script(src="./js/prefixfree.min.js")
+    script(src="audio-recorder.js?v=111")  
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css')
+  body
+    .card.hovercard
+      .card-background
+        img(alt="" src="/images/profile-earth.jpg")
+      .useravatar
+        input#avatar_file(type="file" accept="image/*")
+        .hvrbox
+          img(alt="User Avatar" src="/images/avatar.jpg")
+          .hvrbox-layer_top
+            .hvrbox-text
+              i.icon.ion-ios-camera-outline
+              a.s-text-14-white(href="#" onclick="changeAvatar()") Change Profile Picture
+      .card-info
+        span.card-title #{cUser}
+    .container
+      .main-content
+        block content
+      #contenido.content
+      #sidebar.sidebar
+        block sidebar
+    footer
+      p DianaBGomez - D2SmartSoft Todos los Derechos Reservados 2018     
