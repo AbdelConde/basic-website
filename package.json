@@ -9,7 +9,7 @@
     "dependencies": {
         "body-parser": "*",
         "cookie-parser": "*",
-        "bcrypt": "*",
+        "bcrypt": "2.0.0",
         "node-datetime": "*",
         "express": "*",
         "express-session": "*",
