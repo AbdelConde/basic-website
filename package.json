@@ -1,5 +1,8 @@
 {
     "name": "ProfileEarthling",
+    "engines": {
+    "node": "8.9.4"
+  }
     "version": "0.0.1",
     "private": "true",
     "main": "app.js",
