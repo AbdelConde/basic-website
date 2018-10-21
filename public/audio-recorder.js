@@ -168,11 +168,20 @@ function upload_audio(index){
     var AudioBLOB = arrAudio[index]['blob'];
     var fileName = arrAudio[index]['filename'];
     fd.append('upl', AudioBLOB, fileName);
+/*    fetch('/upload',
+    {
+        method: 'post',
+        body: fd
+    });*/
     fetch('/upload',
     {
         method: 'post',
         body: fd
-    });
+    }).then(
+       function(response){
+         alert("File Uploaded successfully");
+        }
+    );
 }
 
 /*
