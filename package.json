@@ -11,7 +11,7 @@
         "cookie-parser": "*",
         "bcrypt": "2.0.0",
         "node-datetime": "*",
-        "express": "*",
+        "express":">=3.11.0",
         "express-session": "*",
         "nib": "*",
         "stylus": "*",
