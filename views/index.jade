@@ -34,12 +34,12 @@ block sidebar
                         li
                             a(href="#!" )
                                 i.zmdi.zmdi-playlist-plus.zmdi-hc-fw New Recording
-block navbar
+block navbar    
     nav.full-box.dashboard-Navbar
-        ul.full-box.list-unstyled.text-right
-            li.pull-left
-                if cUser
-                    a(href="#!" class="btn-menu-dashboard user-button")
-                else
-                    a(href="/login" class="login-button")
-            li
+      ul.full-box.list-unstyled.text-right
+          li.pull-left
+              if cUser
+                  a(href="#!" class="btn-menu-dashboard user-button")
+              else
+                  a(href="/login" class="login-button")
+          li
