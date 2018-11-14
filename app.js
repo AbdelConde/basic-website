@@ -37,7 +37,7 @@ var dbUrl = "mongodb://d2smtsw:earthlingd2@ds137483.mlab.com:37483/earthling";
 const conn = mongoose.createConnection(dbUrl);
 
 var outFile = 'demo.wav';
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 var app = express()
 
 
