@@ -95,7 +95,7 @@ var login = function () {
     window.open('http://localhost:3000/profile', '_blank');
 }
 Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YTNkM2M4OS1iYTUzLTQzMmItYTkxNi1iYjc5NGZlYTllMGYiLCJpZCI6Mjg2NCwiaWF0IjoxNTM0OTU5MjA0fQ.rp8FbC9rMLHK-KyLis8wvDnjni9a0saRK2GoqaEuf1k";
-var cesiumContainer = document.getElementById('cesiumContainer');
+var cesiumContainer = document.getElementById('map');
 var viewer = new Cesium.Viewer(cesiumContainer, {
     imageryProvider: new Cesium.BingMapsImageryProvider({
         url: 'https://dev.virtualearth.net',
@@ -110,10 +110,50 @@ var viewer = new Cesium.Viewer(cesiumContainer, {
     })
 });
 //getLocation()
-getUsers();
-
-
+viewer.scene.globe.baseColor = Cesium.Color.BLUE;
 $(viewer._animation.container).css('visibility', 'hidden');
 $(viewer._timeline.container).css('visibility', 'hidden');
+$(viewer._toolbar).css('visibility', 'hidden');
+
+var scene = viewer.scene;
+if (!scene.pickPositionSupported) {
+    console.log('This browser does not support pickPosition.');
+}
+
+var handler;
+var entity = viewer.entities.add({
+        label : {
+            show : false,
+            showBackground : true,
+            font : '14px monospace',
+            horizontalOrigin : Cesium.HorizontalOrigin.LEFT,
+            verticalOrigin : Cesium.VerticalOrigin.TOP,
+            pixelOffset : new Cesium.Cartesian2(15, 0)
+        }
+    });
+
+    // Mouse over the globe to see the cartographic position
+    handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+    handler.setInputAction(function(movement) {
+        var pickedObject = scene.pick(movement.endPosition);
+        pickedObject.billboard.scale = 2.0;
+        pickedObject.billboard.color = Cesium.Color.YELLOW;
+        
+//        var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, scene.globe.ellipsoid);
+//        if (cartesian) {
+//            var cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+//            var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+//            var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+//
+//            entity.position = cartesian;
+//            entity.label.show = true;
+//            entity.label.text =
+//                'Lon: ' + ('   ' + longitudeString).slice(-7) + '\u00B0' +
+//                '\nLat: ' + ('   ' + latitudeString).slice(-7) + '\u00B0';
+//        } else {
+//            entity.label.show = false;
+//        }
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
 
 viewer.forceResize();
+getUsers();
